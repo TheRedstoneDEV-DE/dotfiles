@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+get_backlight(){
+    echo $(brightnessctl -m | cut -d, -f4)
+}
+
+change_backlight(){
+    brightnessctl set "$1"
+}
+
+case "$1" in
+    "--get")
+        get_backlight
+        ;;
+    "--inc")
+        change_backlight "+10%"
+        ;;
+    "--dec")
+        change_backlight "10%-"
+        ;;
+    "--off")
+        change_backlight "0%"
+        ;;
+esac

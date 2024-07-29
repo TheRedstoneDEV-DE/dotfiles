@@ -1,0 +1,136 @@
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["wireplumber", "cava", "network", "cpu", "memory", "temperature","tray","clock","battery"],
+    // Modules configuration
+    "hyprland/workspaces": {
+       "disable-scroll": true,
+       "all-outputs": true,
+       "warp-on-scroll": false,
+       "tooltip":false,
+       "format": "{name}: {icon}",
+       "format-icons": {
+           //"1": "",
+           //"2": "",
+           //"3": "",
+           //"4": "",
+           //"5": "",
+           "urgent": "",
+           "active": "",
+           "default": ""
+       }
+    },
+    //"mpd": {
+    //    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    //    "format-disconnected": "Disconnected ",
+    //    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    //    "unknown-tag": "N/A",
+    //    "interval": 2,
+    //    "consume-icons": {
+    //        "on": " "
+    //    },
+    //    "random-icons": {
+    //        "off": "<span color=\"#f53c3c\"></span> ",
+    //        "on": " "
+    //    },
+    //    "repeat-icons": {
+    //        "on": " "
+    //    },
+    //    "single-icons": {
+    //        "on": "1 "
+    //    },
+    //    "state-icons": {
+    //        "paused": "",
+    //        "playing": ""
+    //    },
+    //    "tooltip-format": "MPD (connected)",
+    //    "tooltip-format-disconnected": "MPD (disconnected)"
+    //},
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10,
+	  "tooltip": false,
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	  "interval": 1,
+	  "format": "{:%H:%M:%S}",
+    "format-alt": "{:%Y-%m-%d}",
+	  "tooltip": false
+  },
+  "cpu": {
+      "format": "{usage:02}% ",
+      "tooltip": false
+  },
+  "memory": {
+    "format": "{:02}% ",
+	  "tooltip": false,
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", "", "", "", "󰸁"] ,
+	  "tooltip": false,
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-icons": ["󰤟","󰤢","󰤥","󰤨"],
+    "format-wifi": "{essid} ({signalStrength}%) {icon}",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+	  "tooltip": false,
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) 󰤮",
+    "format-disconnected": "Disconnected 󰤮",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "wireplumber": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{volume:02}% ",
+      "format-muted": "",
+	"tooltip": false
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {icon} {capacity}%",
+    "format-plugged": "󱐋 {icon} {capacity}%",
+    "format-full": " {icon} {capacity}%",
+    "format-alt":" {time} 󰂐 {health}% 󱩘 {power}W",
+    "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+  },
+  "cava": {
+        "framerate": 30,
+        "autosens": 0,
+        "hide_on_silence": true,
+        "sensitivity": 60,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": true,
+        "waves": true,
+        "noise_reduction": 0.0,
+        "input_delay": 0,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+}
+
