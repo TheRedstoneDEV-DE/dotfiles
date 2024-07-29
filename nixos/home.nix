@@ -45,7 +45,8 @@
     ".config/alacritty".source = dotfiles/alacritty;
     ".config/gtk-3.0".source = dotfiles/gtk-3.0;
     ".config/hypr".source = dotfiles/hypr;
-    ".config/nvim".source = dotfiles/nvim;
+    ".config/nvim/init.lua".source = dotfiles/nvim/init.lua;
+    ".config/nvim/lua".source = dotfiles/nvim/lua;
     ".config/qt5ct".source = dotfiles/qt5ct;
     ".config/qt6ct".source = dotfiles/qt6ct;
     ".config/synth-shell".source = dotfiles/synth-shell;
