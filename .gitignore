@@ -1,0 +1,10 @@
+configuration.nix
+hardware-configuration.nix
+wireguard.nix
+wg0-config.nix
+wgprivkey
+uhome.nix
+syncthing.nix
+dotfiles/
+dotfiles-local/
+
