@@ -70,7 +70,7 @@ source ~/.profile
     ll = "ls -alF";
     la = "ls -A";
     l = "ls -CF";
-    nixos-rebuild-switch = "sudo nixos-rebuild switch --flake /etc/nixos/#default";
+    nixos-rebuild-switch = "sudo nixos-rebuild switch --flake path:/etc/nixos#default";
   };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
