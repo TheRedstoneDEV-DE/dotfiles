@@ -11,7 +11,6 @@
   '';
   environment.systemPackages = (with pkgs; [
     surge-XT
-    drumkv1 #- WAIT FOR PR
     x42-plugins
     tap-plugins
     ardour
@@ -28,7 +27,6 @@
     fluidsynth
     cardinal
     qsampler
-    linuxsampler
     zrythm
     reaper
     reaper-sws-extension

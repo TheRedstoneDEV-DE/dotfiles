@@ -307,7 +307,7 @@
                   name = "lsp_eq";
                   plugin = "http://lsp-plug.in/plugins/lv2/para_equalizer_x8_lr";
                   control = {
-                    bal = -8.0;
+                    bal = -0.08;
 
                     # -- Filter 0 - Left --
                     ftl_0  = 5;         # -> Type: Lo-shelf
