@@ -6,6 +6,7 @@
   ]);
   services.opensnitch = {
     enable = true;
+    settings.DefaultAction = "deny";
     rules = {
       systemd-timesyncd = {
         name = "systemd-timesyncd";
@@ -19,6 +20,20 @@
           sensitive = false;
           operand = "process.path";
           data = "${lib.getBin pkgs.systemd}/lib/systemd/systemd-timesyncd";
+        };
+      };
+      yggdrasil = {
+        name = "yggdrasil";
+        enabled = true;
+        created = "2026-02-01T10:37:54Z";
+        updated = "2026-02-01T10:37:54Z";
+        action = "allow";
+        duration = "always";
+        operator = {
+          type = "simple";
+          sensitive = false;
+          operand = "process.path";
+          data = "${lib.getBin pkgs.yggdrasil}/bin/yggdrasil";
         };
       };
       systemd-resolved = {
