@@ -135,9 +135,9 @@
               list = null;
             }
             {
-              type = "network";
-              operand = "dest.network";
-              data = "192.168.0.0/24";
+              type = "regexp";
+              operand = "dest.ip";
+              data = "^(192\\.168\\.0\\.\\d+|10\\.16\\.0\\.\\d+)$";
               sensitive = false;
               list = null;
             }
@@ -164,9 +164,9 @@
               data = "${lib.getBin pkgs.curl}/bin/curl";
             }
             {
-                type = "network";
-              operand = "dest.network";
-              data = "192.168.0.0/24";
+              type = "regexp";
+              operand = "dest.ip";
+              data = "^(192\\.168\\.0\\.\\d+|10\\.16\\.0\\.\\d+)$";
               sensitive = false;
               list = null;
             }
