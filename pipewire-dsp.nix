@@ -225,7 +225,7 @@
               nodes = [
                 {
                   control = {
-                    level = -38;
+                    level = -34;
                   };
                   config = {};
                   name = "lsp_autogain";
