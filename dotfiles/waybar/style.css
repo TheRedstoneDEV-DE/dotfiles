@@ -66,7 +66,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: #cf0000;
 }
 
 #clock,
@@ -78,6 +78,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #tray,
+#battery,
 #idle_inhibitor {
   padding: 0 10px; 
   color: #7EBAE4;
@@ -110,14 +111,6 @@ button:hover {
     }
 }
 
-@keyframes blink_bg {
-    from {
-        background-color: #001313;
-    }
-    to {
-        background-color: #cc0000
-    }
-}
 label:focus {
     background-color: #000000;
 }
@@ -147,11 +140,7 @@ label:focus {
 }
 
 #network.disconnected {
-    animation-name: blink_bg;
-    animation-duration: 0.6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #cf0000;
 }
 
 #wireplumber {
@@ -160,11 +149,7 @@ label:focus {
 }
 
 #wireplumber.muted {
-    animation-name: blink_bg;
-    animation-duration: 0.6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #cf0000; 
 }
 
 #temperature {
