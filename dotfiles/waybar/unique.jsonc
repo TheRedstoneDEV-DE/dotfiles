@@ -1,1 +1,7 @@
-{}
+{
+  "output": "DP-3",
+  "modules-center": ["hyprland/window"],
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input"
+  }
+}
