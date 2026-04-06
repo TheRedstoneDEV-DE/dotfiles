@@ -1,0 +1,24 @@
+configuration {
+  insensitive: true;
+  hide-scroll: true;
+  show: "drun";
+  width: 10%;
+  lines: 8;
+  line-wrap: "word";
+  terminal: "alacritty";
+  allow-markup: true;
+  always-parse-args: false;
+  show-all: true;
+  print-command: false;
+  layer: "overlay";
+  allow-images: true;
+  show-icons: true;
+  sort-order: "alphabetical";
+  gtk-theme: "dark";
+  prompt: "->";
+  image-size: 20;
+  display-generic: false;
+  key-expand: "Tab";
+  sidebar-mode: true;
+}
+@theme "current"

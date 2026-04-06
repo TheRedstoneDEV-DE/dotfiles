@@ -2,7 +2,12 @@
 
 {
   environment.systemPackages = (with pkgs; [
-    opensnitch-ui
+    (opensnitch-ui.overrideAttrs (old: {
+      postPatch = (old.postPatch or "") + ''
+        cp ${./icons/opensnitch}/*.png opensnitch/res/
+        cp ${./icons/opensnitch}/*.svg opensnitch/res/
+      '';
+    }))
   ]);
   services.opensnitch = {
     enable = true;

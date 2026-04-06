@@ -62,6 +62,10 @@ if [ -f /home/robert/.config/synth-shell/better-history.sh ] && [ -n "$( echo $-
   source /home/robert/.config/synth-shell/better-history.sh
 fi
 
+command_not_found_handle() {
+    printf '\u001B[1A\u001B[2K\u001B[1A\u001B[2K'
+}
+
 export __HM_SESS_VARS_SOURCED=""
 source ~/.profile
   '';
@@ -112,11 +116,13 @@ source ~/.profile
       "application/x-compressed-tar" = ["org.kde.ark.desktop"];
       "application/java-archive" = ["org.kde.ark.desktop"];
       "text/csv" = ["org.kde.kate.desktop"];
+      "text/ini" = ["org.kde.kate.desktop"];
       "text/html" = ["librewolf.desktop"];
-      "application/js" = ["codium.desktop"];
-      "test/css" = ["codium.desktop"];
+      "application/js" = ["org.kde.kate.desktop"];
+      "test/css" = ["org.kde.kate.desktop"];
       "video/ogg" = ["vlc.desktop"];
       "audio/ogg" = ["vlc.desktop"];
+      "audio/flac" = ["vlc.desktop"];
       "audio/wav" = ["vlc.desktop"];
       "audio/webm" = ["vlc.desktop"];
       "video/webm" = ["vlc.desktop"];
@@ -142,12 +148,14 @@ source ~/.profile
       "application/x-compressed-tar" = ["org.kde.ark.desktop"];
       "application/java-archive" = ["org.kde.ark.desktop"];
       "text/csv" = ["org.kde.kate.desktop"];
+      "text/ini" = ["org.kde.kate.desktop"];
       "text/html" = ["librewolf.desktop"];
-      "application/js" = ["codium.desktop"];
-      "test/css" = ["codium.desktop"];
+      "application/js" = ["org.kde.kate.desktop"];
+      "test/css" = ["org.kde.kate.desktop"];
       "video/ogg" = ["vlc.desktop"];
       "audio/ogg" = ["vlc.desktop"];
       "audio/wav" = ["vlc.desktop"];
+      "audio/flac" = ["vlc.desktop"];
       "audio/webm" = ["vlc.desktop"];
       "video/webm" = ["vlc.desktop"];
       "audio/mpeg" = ["vlc.desktop"];
@@ -179,7 +187,6 @@ source ~/.profile
     ".config/alacritty".source = dotfiles/alacritty;
     ".config/gtk-3.0".source = dotfiles/gtk-3.0;
     ".config/hypr".source = dotfiles/hypr;
-    #".config/nvim".source = dotfiles/nvim;
     ".config/qt5ct".source = dotfiles/qt5ct;
     ".config/qt6ct".source = dotfiles/qt6ct;
     ".config/synth-shell".source = dotfiles/synth-shell;
@@ -189,6 +196,7 @@ source ~/.profile
     ".config/sway".source = dotfiles/sway;
     ".config/swaylock".source = dotfiles/swaylock;
     ".config/rofi".source = dotfiles/rofi;
+    ".config/mako".source = dotfiles/mako;
     #".bashrc".source = dotfiles/bashrc;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

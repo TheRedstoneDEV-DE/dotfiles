@@ -1,0 +1,11 @@
+image="/home/robert/.config/wallpaper/NixOS-Wallpaper-blur.png"
+ignore-empty-password
+indicator-radius=100
+indicator-thickness=20
+key-hl-color=7ebae4
+bs-hl-color=cc66ff
+ring-color=5277C3
+ring-clear-color=284071
+ring-caps-lock-color=4299d7
+show-keyboard-layout
+line-uses-inside

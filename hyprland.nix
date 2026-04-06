@@ -28,7 +28,6 @@
     grim
     waybar
     wl-clipboard
-    kitty
   ]);
 
   # ++

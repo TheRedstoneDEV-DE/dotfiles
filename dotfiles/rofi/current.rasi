@@ -1,0 +1,58 @@
+* {
+    font: "JetBrainsMono 12";
+    background-color: #202f3a;
+    color: #7EBAE4;  // #7EBAE4
+}
+
+window {
+    background-color: #202f3a;  // #202f3a
+    border: 2px solid;  // #7EBAE4
+    border-color: #7EBAE4;
+    border-radius: 6px;
+    width: 30%;
+}
+
+inputbar {
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    border-color: #7EBAE4;
+    text-color: #7EBAE4;  // #7EBAE4
+    background-color: #486b84;
+}
+
+textbox {
+    text-color: #7EBAE4;  // #7EBAE4
+    background-color: #486b84;
+}
+
+listview {
+    padding: 5px;
+}
+
+element {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+element normal {
+    text-color: #7EBAE4;  // #7EBAE4
+}
+
+element selected {
+    border: 1px solid;  // #8ed0ff
+    border-color: #8ed0ff;
+    font-weight: bold;
+}
+
+element-icon {
+    margin-right: 6px;
+}
+
+scrollbar {
+    handle-color: #7EBAE4;  // #7EBAE4
+    handle-width: 4px;
+}
