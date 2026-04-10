@@ -1,6 +1,10 @@
 {
   "output": "DP-3",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
+  "modules-right": ["wireplumber", "network", "cpu", "memory", "temperature","tray","clock","battery"],
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input"
   }
