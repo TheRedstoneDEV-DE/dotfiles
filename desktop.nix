@@ -30,7 +30,8 @@
 
   programs.wireshark.enable = true;
   services.gvfs.enable = true;
-  programs.kdeconnect.enable = true; 
+  programs.kdeconnect.enable = true;
+  programs.fuse.userAllowOther = true; # for kdeconnect
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 

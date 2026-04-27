@@ -28,6 +28,8 @@
     vulkan-loader		# Used for Nomic Vulkan
     # amdvlk			
     libvdpau-va-gl		# vaapi
+    libva
+    libva-utils
     btop-rocm
   ];
   
