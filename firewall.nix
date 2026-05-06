@@ -14,8 +14,10 @@
       10003 # ROC
       8423  # SSHD - Buildserver
       5201  # Iperf3
+      5520  # HYTALE
     ];
     allowedUDPPorts = [
+      5520 # HYTALE
       4464
       21118
       10001 # ROC

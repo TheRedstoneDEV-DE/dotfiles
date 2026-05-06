@@ -128,7 +128,7 @@
         {
           name = "libpipewire-module-rtp-sink";
           args = {
-            "destination.ip" = "192.168.0.230";
+            "destination.ip" = "192.168.10.230";
             "destination.port" = 10001;
             "sess.name" = "PipeWire RTP stream";
             "audio.rate" = 48000;
