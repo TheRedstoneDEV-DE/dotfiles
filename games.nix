@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = (with pkgs; [
-    steam
     heroic
     wineWowPackages.stable
     moonlight-qt
@@ -21,4 +20,8 @@
   (with pkgs-unstable; [
     # nexusmods-app - broken
   ]);
+
+  programs.steam = {
+    enable = true;
+  };
 }

@@ -15,6 +15,7 @@
     vesktop
     bluez
     nemo
+    waypipe
 
     ## -- KDE Packages -- ##
     kdePackages.okular

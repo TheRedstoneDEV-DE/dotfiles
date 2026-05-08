@@ -27,6 +27,8 @@ description = "Nixos config flake";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +46,7 @@ description = "Nixos config flake";
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-unstable, custom-overrides, home-manager, check_mk_agent,... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-unstable, custom-overrides, home-manager, check_mk_agent, ... }@inputs: 
     let
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
@@ -58,7 +60,7 @@ description = "Nixos config flake";
       };
       modules = [
         {
-          nixpkgs.overlays = [ custom-overrides.overrides ];
+          nixpkgs.overlays = [ custom-overrides.overrides inputs.millennium.overlays.default ];
         }
         ./configuration.nix
         check_mk_agent.nixosModules.check_mk_agent
