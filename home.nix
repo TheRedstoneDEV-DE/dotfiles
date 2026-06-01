@@ -11,6 +11,7 @@
       nixd
       zathura
       texliveMedium
+      lua-language-server
       (python3.withPackages(ps: with ps; [
         python-lsp-server
         flake8
@@ -26,9 +27,24 @@
         end
       },
     }";
-    extraConfig = "vim.lsp.enable('pylsp')
+    extraConfig = ''vim.lsp.enable('pylsp')
     vim.lsp.enable('rust_analyzer')
-    vim.lsp.enable('nixd')";
+    vim.lsp.enable('nixd')
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          runtime = { version = "LuaJIT" },
+          workspace = {
+            library = {
+              "${pkgs.hyprland}/share/hypr/stubs",
+              vim.env.VIMRUNTIME,
+            },
+          },
+        },
+      },
+    })
+    vim.lsp.enable('lua_ls')
+    '';
   };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -186,7 +202,7 @@ source ~/.profile
     # ".screenrc".source = dotfiles/screenrc;
     ".config/alacritty".source = dotfiles/alacritty;
     ".config/gtk-3.0".source = dotfiles/gtk-3.0;
-    ".config/hypr".source = dotfiles/hypr;
+#    ".config/hypr".source = dotfiles/hypr;
     ".config/qt5ct".source = dotfiles/qt5ct;
     ".config/qt6ct".source = dotfiles/qt6ct;
     ".config/synth-shell".source = dotfiles/synth-shell;

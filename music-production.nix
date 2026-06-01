@@ -10,7 +10,7 @@
     DEVPATH=="/devices/virtual/misc/cpu_dma_latency", OWNER="root", GROUP="audio", MODE="0660"
   '';
   environment.systemPackages = (with pkgs; [
-    surge-XT
+    surge-xt
     x42-plugins
     tap-plugins
     ardour

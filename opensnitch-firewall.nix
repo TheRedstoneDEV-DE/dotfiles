@@ -240,7 +240,7 @@
             {
               type = "network";
               operand = "dest.network";
-              data = "192.168.0.0/24";
+              data = "192.168.10.0/24";
               sensitive = false;
             }
           ];

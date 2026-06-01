@@ -8,9 +8,9 @@ description = "Nixos config flake";
   };
 
   inputs = {
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # waybar = {
@@ -30,7 +30,7 @@ description = "Nixos config flake";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -3,7 +3,6 @@
 {
   environment.systemPackages = (with pkgs; [
     heroic
-    wineWowPackages.stable
     moonlight-qt
     xonotic
 #    idtech4
@@ -11,7 +10,7 @@
     prismlauncher
     lutris
     protontricks
-    gamescope-patched-input
+#     gamescope-patched-input
     mangohud
   ])
 
