@@ -202,7 +202,7 @@ source ~/.profile
     # ".screenrc".source = dotfiles/screenrc;
     ".config/alacritty".source = dotfiles/alacritty;
     ".config/gtk-3.0".source = dotfiles/gtk-3.0;
-#    ".config/hypr".source = dotfiles/hypr;
+    ".config/hypr".source = dotfiles/hypr;
     ".config/qt5ct".source = dotfiles/qt5ct;
     ".config/qt6ct".source = dotfiles/qt6ct;
     ".config/synth-shell".source = dotfiles/synth-shell;
