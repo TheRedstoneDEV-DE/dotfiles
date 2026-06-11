@@ -5,7 +5,8 @@ local autostart_apps = {
   "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
   "systemctl --user start hypridle",
   "mako",
-  "/run/current-system/sw/libexec/polkit-kde-authentication-agent-1"
+  "systemctl --user start plasma-polkit-agent",
+  "systemctl --user start xdg-desktop-portal-hyprland"
 }
 
 hl.on("hyprland.start", function ()
