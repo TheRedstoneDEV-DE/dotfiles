@@ -213,6 +213,7 @@ source ~/.profile
     ".config/swaylock".source = dotfiles/swaylock;
     ".config/rofi".source = dotfiles/rofi;
     ".config/mako".source = dotfiles/mako;
+    ".icons".source = dotfiles/.icons;
     #".bashrc".source = dotfiles/bashrc;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

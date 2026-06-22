@@ -15,6 +15,9 @@ Terminal = "alacritty"
 Menu = "rofi -show drun"
 Main_mod = "SUPER"
 
+hl.env("HYPRCURSOR_THEME", "NixOS-Cursors")
+hl.env("HYPRCURSOR_SIZE", "28")
+
 require("shortcuts")
 require("animations")
 require("rules")
