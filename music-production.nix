@@ -32,6 +32,8 @@
     reaper-sws-extension
     reaper-reapack-extension
     openbox
+    sfizz-ui
+    fluida-lv2
   ]);
   
   #++
