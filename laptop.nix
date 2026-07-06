@@ -19,8 +19,8 @@
 
         #CPU_SCALING_MIN_FREQ_ON_AC=0;
         #CPU_SCALING_MAX_FREQ_ON_AC=9999999;
-        #CPU_SCALING_MIN_FREQ_ON_BAT=0;
-        #CPU_SCALING_MAX_FREQ_ON_BAT=800;
+        #CPU_SCALING_MIN_FREQ_ON_BAT=413637;
+        #CPU_SCALING_MAX_FREQ_ON_BAT=1000000;
 
        #Optional helps save long term battery health
        START_CHARGE_THRESH_BAT0 = 60; # 40 and bellow it starts to charge

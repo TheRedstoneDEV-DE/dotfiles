@@ -57,6 +57,7 @@ description = "Nixos config flake";
         inherit inputs;
         inherit pkgs-stable;
         inherit pkgs-unstable;
+        inherit nixpkgs;
       };
       modules = [
         {
