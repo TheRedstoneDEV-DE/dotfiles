@@ -214,6 +214,8 @@ source ~/.profile
     ".config/rofi".source = dotfiles/rofi;
     ".config/mako".source = dotfiles/mako;
     ".icons".source = dotfiles/.icons;
+    ".config/kdeglobals".source = dotfiles/kdeglobals;
+    ".local/share/color-schemes".source = dotfiles/color-schemes;
     #".bashrc".source = dotfiles/bashrc;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

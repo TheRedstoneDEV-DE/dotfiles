@@ -167,4 +167,5 @@ in
 
   networking.hostName = "netboot-client";
   networking.firewall.enable = false;
+  system.stateVersion = "26.05";
 }
