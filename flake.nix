@@ -44,9 +44,11 @@ description = "Nixos config flake";
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tuxedo-rs.url = "github:TheRedstoneDEV-DE/tuxedo-rs/gemini-fix";
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-unstable, custom-overrides, home-manager, check_mk_agent, ... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-unstable, custom-overrides, home-manager, check_mk_agent,  tuxedo-rs, ... }@inputs: 
     let
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
@@ -61,7 +63,17 @@ description = "Nixos config flake";
       };
       modules = [
         {
-          nixpkgs.overlays = [ custom-overrides.overrides inputs.millennium.overlays.default ];
+          nixpkgs.overlays = [ 
+            custom-overrides.overrides inputs.millennium.overlays.default 
+            (final: prev: {
+              # Pull tuxedo-rs from your local flake's packages
+              tuxedo-rs = tuxedo-rs.packages.x86_64-linux.tuxedo-rs;
+
+              # Pull tailor-gui from your local flake too, so it doesn't
+              # use nixpkgs's broken cross-reference to tuxedo-rs.src.name
+              tailor-gui = tuxedo-rs.packages.x86_64-linux.tailor-gui;
+            })
+          ];
         }
         ./configuration.nix
         check_mk_agent.nixosModules.check_mk_agent
