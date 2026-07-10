@@ -61,7 +61,12 @@ in
     dialog
     pciutils
     xonotic
-    steam-run-free
+    steam-run-free 
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    jetbrains-mono
   ];
 
   services.pipewire = {
@@ -87,7 +92,7 @@ in
 
   environment.etc."xdg/openbox/autostart".text = ''
     feh --bg-fill ${./wallpaper.png} &
-    tint2 &
+    tint2 -c /etc/xdg/tint2/tint2rc &
   '';
 
   environment.etc."xdg/openbox/menu.xml".text = ''
@@ -107,6 +112,7 @@ in
   
   environment.etc = {
     "xdg/openbox/rc.xml".source = ./rc.xml;
+    "xdg/tint2/tint2rc".source = ./tint2rc;
   };
 
   services.xserver = {
