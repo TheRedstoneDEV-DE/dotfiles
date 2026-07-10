@@ -3,7 +3,7 @@ description = "Nixos config flake";
 
   nixConfig = {
     extra-substituters = [
-      "http://nix-cache.homelab.local:8080" 
+      "http://archives.citadel.space:8080" 
     ];
   };
 
