@@ -12,4 +12,7 @@
   virtualisation.podman = {
     enable = true;
   };
+  environment.systemPackages = [
+    pkgs.virtiofsd
+  ];
 }

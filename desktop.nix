@@ -12,7 +12,12 @@
     alsa-scarlett-gui
     wl-clipboard
     virt-manager
-    vesktop
+
+    (discord.override {
+      # withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
+
     bluez
     nemo
 

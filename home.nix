@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.nix4nvchad.homeManagerModule
+    inputs.nix4nvchad.homeManagerModules.default
     ./uhome.nix
   ];
   programs.nvchad = {
