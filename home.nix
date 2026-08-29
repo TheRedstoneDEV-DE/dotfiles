@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 {
   imports = [
@@ -121,6 +121,22 @@ source ~/.profile
     # '')
   ];
 
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "breeze-dark";
+      package = pkgs.kdePackages.breeze-icons;
+    };
+
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
+  };
+
+  gtk.gtk4.theme = config.gtk.theme;
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
 
@@ -194,6 +210,7 @@ source ~/.profile
       "x-scheme-handler/steam" = "steam.desktop";
     };
   };
+  
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in

@@ -11,4 +11,12 @@
   
   # disable coredumps
   systemd.coredump.enable = false;
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "-";       # both soft and hard limit
+      item = "core";
+      value = "0";
+    }
+  ];
 }

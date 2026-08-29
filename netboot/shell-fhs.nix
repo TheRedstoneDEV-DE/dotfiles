@@ -23,11 +23,15 @@ pkgs.buildFHSEnv {
       zstd
       fuse-overlayfs
       fuse3
+      pkgs.pkgsi686Linux.glibc
+      pkgs.pkgsi686Linux.libgcc
+      pkgs.pkgsi686Linux.mesa
+      pkgs.pkgsi686Linux.vulkan-loader
     ]);
     multiPkgs =
     let
       xorgDeps =
-        pkgs: with pkgs; [
+        pkgs: (with pkgs; [
           libICE
           libpthreadstubs
           libSM
@@ -49,7 +53,31 @@ pkgs.buildFHSEnv {
           libXtst
           libXv
           libXxf86vm
-        ];
+        ])
+        ++
+        (with pkgs.pkgsi686Linux; [
+          libICE
+          libpthreadstubs
+          libSM
+          libX11
+          libXaw
+          libxcb
+          libXcomposite
+          libXcursor
+          libXdmcp
+          libXext
+          libXfixes
+          libXi
+          libXinerama
+          libXmu
+          libXrandr
+          libXrender
+          libXScrnSaver
+          libXt
+          libXtst
+          libXv
+          libXxf86vm
+        ]);
       gstreamerDeps =
         pkgs: with pkgs.gst_all_1; [
           gstreamer
@@ -58,6 +86,73 @@ pkgs.buildFHSEnv {
           gst-plugins-ugly
           gst-plugins-bad
           gst-libav
+        ];
+      x86deps =
+        pkgs: with pkgs.pkgsi686Linux; [
+          alsa-lib
+          alsa-plugins
+          bash
+          cabextract
+          cairo
+          coreutils
+          cups
+          dbus
+          freealut
+          freetype
+          fribidi
+          giflib
+          gnutls
+          gtk3
+          icu
+          lcms2
+          libevdev
+          libgcrypt
+          libGLU
+          libglvnd
+          libgpg-error
+          libgudev
+          libjpeg
+          libkrb5
+          libmpeg2
+          libogg
+          libopus
+          libpng
+          libpulseaudio
+          libselinux
+          libsndfile
+          libsoup_3
+          libtheora
+          libtiff
+          libunwind
+          libusb1
+          libv4l
+          libva
+          libvdpau
+          libvorbis
+          libvpx
+          libwebp
+          libxkbcommon
+          libxml2
+          mpg123
+          ncurses
+          ocl-icd
+          openal
+          openldap
+          openssl
+          pango
+          pipewire
+          wayland
+          SDL2
+          udev
+          sane-backends
+          speex
+          sqlite
+          unixodbc
+          util-linux
+          zlib
+          bzip2
+          libgbm
+          fontconfig
         ];
     in
     pkgs:
@@ -131,9 +226,11 @@ pkgs.buildFHSEnv {
       libgbm
       bubblewrap
       vulkan-tools
+      fontconfig
     ]
     ++ xorgDeps pkgs
-    ++ gstreamerDeps pkgs;
+    ++ gstreamerDeps pkgs
+    ++ x86deps pkgs;
   runScript = pkgs.writeScript "fhs-wrapper" ''
     #!/bin/bash
     exec "$@"
