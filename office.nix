@@ -23,5 +23,6 @@
     gimp
     inkscape
     marktext
+    signal-desktop
   ];
 }

@@ -61,7 +61,8 @@ in
     dialog
     pciutils
     xonotic
-    steam-run-free 
+    steam-run-free
+    brightnessctl
   ];
 
   fonts.packages = with pkgs; [
@@ -75,6 +76,10 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
 
   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
     [Settings]
@@ -162,13 +167,13 @@ in
   };
   
   users.users.root.password = "netboot";
-  users.users.root.openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOkskFx53+ffeaXl9JC11W/nn0Zk/RnGLIKrq5HUjh8M robert@Nomad"];
+  users.users.root.openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOkskFx53+ffeaXl9JC11W/nn0Zk/RnGLIKrq5HUjh8M robert@Nomad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3Y7mUUlvzczVRsGGYtWzjrK9pslU1q0n6NN61vbvXT robert@Sovereign"];
   users.users.net = {
     isNormalUser = true;
     description = "Netboot";
     extraGroups = [ "networkmanager" "wheel" "audio" "docker" "plugdev" "input" "uinput" "video" "render" ];
     password = "netboot";
-    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOkskFx53+ffeaXl9JC11W/nn0Zk/RnGLIKrq5HUjh8M robert@Nomad"];
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOkskFx53+ffeaXl9JC11W/nn0Zk/RnGLIKrq5HUjh8M robert@Nomad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3Y7mUUlvzczVRsGGYtWzjrK9pslU1q0n6NN61vbvXT robert@Sovereign"];
   };
 
   networking.hostName = "netboot-client";

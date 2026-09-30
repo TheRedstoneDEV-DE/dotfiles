@@ -12,6 +12,8 @@
     protontricks
 #     gamescope-patched-input
     mangohud
+    wineWow64Packages.waylandFull
+    winetricks
   ])
 
   ++

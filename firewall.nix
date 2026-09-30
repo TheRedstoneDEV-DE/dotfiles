@@ -15,6 +15,8 @@
       8423  # SSHD - Buildserver
       5201  # Iperf3
       5520  # HYTALE
+      7777  # UT4 Server
+      7787  # UT4 Server
     ];
     allowedUDPPorts = [
       5520 # HYTALE
@@ -23,6 +25,8 @@
       10001 # ROC
       10002 # ROC audio stream
       10003 # ROC
+      7777  # UT4 Server
+      7787  # UT4 Server
     ];
     allowedTCPPortRanges = [ 
       { from = 1714; to = 1764; } # KDE Connect

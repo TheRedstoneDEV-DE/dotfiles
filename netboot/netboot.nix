@@ -19,14 +19,14 @@ in {
   services.dnsmasq = {
     enable = true;
     settings = {
-      interface = "eno1";
+      interface = "bond0";
       bind-interfaces = true;
       port = 0;
   
       dhcp-range = [ "192.168.10.50,192.168.10.200,12h" ];
       dhcp-option = [
         "option:router,192.168.10.1"
-        "option:dns-server,192.168.10.1"
+        "option:dns-server,9.9.9.9"
       ];
   
       enable-tftp = true;
@@ -39,7 +39,7 @@ in {
       ];
       dhcp-boot = [
         "tag:ipxe,boot.ipxe"
-        "tag:efi64,ipxe-shim.efi"
+        "tag:efi64,ipxe.efi"
         "tag:bios,undionly.kpxe"
       ];
   
@@ -52,7 +52,7 @@ in {
   
   systemd.tmpfiles.rules = [ "d /srv/tftp 0755 root root -" ];
   
-  environment.etc."netboot/boot.ipxe".text = ''
+  environment.etc."netboot/menu.ipxe".text = ''
     #!ipxe
     menu Select Hardware Specialization
     item universal  AMD / Intel / nouveau (universal/FOSS)
@@ -76,14 +76,34 @@ in {
     boot
   '';
 
+  environment.etc."netboot/foss.ipxe".text = ''
+    kernel bzImage init=${clientBuild.toplevel}/init ${toString client.config.boot.kernelParams} loglevel=4
+    initrd initrd
+    boot
+  '';
+
+  environment.etc."netboot/nvprod.ipxe".text = ''
+    kernel bzImage init=${clientBuild.toplevel}/specialisation/nvidiaprod/init ${toString client.config.boot.kernelParams} loglevel=4
+    initrd initrd
+    boot
+  '';
+
+  environment.etc."netboot/nvold.ipxe".text = ''
+    kernel bzImage init=${clientBuild.toplevel}/specialisation/nvidia470/init ${toString client.config.boot.kernelParams} loglevel=4
+    initrd initrd
+    boot
+  '';
+
   system.activationScripts.tftpAssets.text = ''
     mkdir -p /srv/tftp
     ln -sf ${clientBuild.kernel}/bzImage        /srv/tftp/bzImage
     ln -sf ${clientBuild.initialRamdisk}/initrd /srv/tftp/initrd
-    ln -sf ${pkgs.ipxe}/ipxe.efi                /srv/tftp/ipxe.efi
+    ln -sf ${pkgs.ipxe}/snp.efi                /srv/tftp/ipxe.efi
     ln -sf ${pkgs.ipxe}/undionly.kpxe           /srv/tftp/undionly.kpxe
-    cp -f  /etc/netboot/boot.ipxe               /srv/tftp/boot.ipxe
-    cp -f /etc/netboot/boot.ipxe                /srv/tftp/autoexec.ipxe
+    cp -f  /etc/netboot/menu.ipxe               /srv/tftp/menu.ipxe
+    cp -f  /etc/netboot/foss.ipxe               /srv/tftp/foss.ipxe
+    cp -f  /etc/netboot/nvprod.ipxe             /srv/tftp/nvprod.ipxe
+    cp -f  /etc/netboot/nvold.ipxe              /srv/tftp/nvold.ipxe
   '';
 
   services.nfs.server = {
@@ -99,6 +119,6 @@ in {
     pkgs.nbd
   ];
 
-  networking.firewall.allowedUDPPorts = [ 67 69 4011 ];
-  networking.firewall.allowedTCPPorts = [ 2049 ];
+  networking.firewall.allowedUDPPorts = [ 67 69 4011 8016 ];
+  networking.firewall.allowedTCPPorts = [ 2049 8016 ];
 }
